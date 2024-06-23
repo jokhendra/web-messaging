@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Connect</title>
+</head>
+<body>
+  <div class="audiocall" id="audioCall" 
+  style="display: none;"
+  >
+    <!-- image and call accepte and reject button will be here and also the name of the person who is calling -->
+    <div class="audio-call-container">
+      <img src="imags/person.avif" alt="">
+      <p id="call-user-name">John Doe</p>
+      <span id="time-counter" style="display: none;">00:00:00</span>
+      <div class="audio-call-buttons">
+        <button onclick="acceptCall()" style="display: none;" id="audio-call-accept" class="audio-call-accept"><i class="fa-solid fa-phone"></i></button>
+        <button onclick="rejectCall()" style="display: none;" id="audio-call-reject" class="audio-call-reject"><i class="fa-solid fa-phone-slash"></i></button>
+        <button onclick="mute_unmute()" style="display: none;" id="audio-mute-unmute" class="audio-mute-unmute"><i id="mute-unmute" class="fa-solid fa-microphone"></i></button>
+        <button onclick="endCall()" style="display: none;" id="audio-call-end" class="audio-call-end"><i class="fa-solid fa-phone-slash"></i></button>
+      </div>
+    </div>
+
+  </div>
+  <div class="main-container">
+    <div class="left-container">
+      <h1 class="online-users-title">Online Users</h1>
+      <div class="online-users" id="online-users">
+        <!-- <div class="user-info">
+          <div class="user-details">
+            <img src="./imags/person.avif" alt="">
+            <div class="name-last-msg">
+              <span class="username">jokhendra praja</span>
+              <span class="last-msg">Hey, how are you?</span>
+            </div>
+          </div>
+          <div class="pending-msg-count-and-time">
+            <span class="last-msg-time">12:00 PM</span>
+            <span class="pending-msg-count">99</span>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="right-container" id="right-container" style="display: none;">
+      <div class="right-top">
+        <div class="right-top-left">
+          <img src="imags/person.avif" alt="">
+          <div>
+            <span id="chat-display-name">John Doe</span>
+            <span id="current-status">Online</span>
+          </div>
+        </div>
+        <div class="right-top-right">
+          <div class="phone-video">
+            <i onclick="makeAudioCall()" class="fa-solid fa-phone"></i>
+            <i onclick="makeVideoCall()" class="fa-solid fa-video"></i>
+          </div>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+      </div>
+    </div>
+
+    <div class="right-bottom">
+      <div class="chat-messages" id="chat-messages"> 
+        <!-- <div class="right-message">
+          <div class="right-child">
+            <p>Hello jokhendra prajapati</p>
+            <div class="confirm-time">
+              <span class="time">12:00 PM</span>
+              <div class="double-tick">
+                <svg viewBox="0 0 24 24" class="tick">
+                    <path d="M1 13.5l4 4L13 9" />
+                </svg>
+                <svg viewBox="0 0 24 24" class="tick">
+                    <path d="M1 13.5l4 4L13 9" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="left-message">
+          <div class="left-child">
+            <p>Hey Nothing</p>
+            <div class="confirm-time">
+              <span class="time">12:00 PM</span>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <div class="chat-input">
+        <input autofocus autocomplete="off"  type="text" id="message" placeholder="Type a message">
+        <button onclick="send_message()" id="send-message"><i class="fa-solid fa-paper-plane"></i></button>
+      </div>  
+    </div>
+  </div>
+  <div class="arrow-button" onclick="toggleLeftContainer()">
+    <!-- Add arrow icon or any other icon for the button -->
+    ▶
+</div>
+<audio id="localAudio" autoplay></audio>
+<audio id="remoteAudio" autoplay></audio>
+<audio src="./media/callingtone.mp3" id="callingtone"></audio>
+<audio src="./media/flute.mp3" id="ringtone"></audio>
+</body>
+<!-- socket script cnd -->
+<script src="https://cdn.socket.io/4.0.1/socket.io.min.js">
+</script>
+<script src="js/index.js"></script>
+</html>

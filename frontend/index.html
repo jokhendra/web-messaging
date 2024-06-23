@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <div class="main-container">
+    <div class="container">
+      <!-- input field width username -->
+      <input type="text" autocomplete="off" autofocus placeholder="Username" id="username">
+      <!-- button to join the chat -->
+      <button onclick="joinChat()">Join Chat</button>
+    </div>
+  </div>
+</body>
+<script>
+  function joinChat() {
+    const username = document.getElementById('username').value;
+    if (username) {
+      window.location.href = `home.html?username=${username}`;
+    }
+    return;
+  }
+</script>
+</html>
